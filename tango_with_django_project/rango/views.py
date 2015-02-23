@@ -3,10 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    if request != '01':
-        return HttpResponse("Meu djangoApp diz Ola Mundo!! <br /><br /> <a href='/rango/about'>About</a>")
-    else:
-        return HttpResponse('another test')
+    context_dict = {'boldmessage': 'I am a bold font from the context'}
+    return render(request, 'rango/index.html', context_dict)
 
 def test(request):
     return HttpResponse("Tomara que tenha mudado algo")
